@@ -76,11 +76,19 @@
       "mappedBy": "hospitals"
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "mainImage": {
       "allowedTypes": [
         "images"
       ],
       "type": "media",
-      "multiple": true
+      "multiple": false
     }
   }
 }

@@ -501,6 +501,7 @@ export interface ApiAppointmentAppointment extends Struct.CollectionTypeSchema {
     singularName: 'appointment';
     pluralName: 'appointments';
     displayName: 'appointment';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -512,6 +513,8 @@ export interface ApiAppointmentAppointment extends Struct.CollectionTypeSchema {
     hospital: Schema.Attribute.Relation<'manyToOne', 'api::hospital.hospital'>;
     clinc: Schema.Attribute.Relation<'manyToOne', 'api::clinc.clinc'>;
     review: Schema.Attribute.Relation<'oneToOne', 'api::review.review'>;
+    name: Schema.Attribute.String;
+    done: Schema.Attribute.String & Schema.Attribute.Unique;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -639,6 +642,7 @@ export interface ApiHospitalHospital extends Struct.CollectionTypeSchema {
     isFeatured: Schema.Attribute.Boolean;
     services: Schema.Attribute.Relation<'manyToMany', 'api::service.service'>;
     images: Schema.Attribute.Media<'images', true>;
+    mainImage: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -669,7 +673,6 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
   attributes: {
     userName: Schema.Attribute.String;
     reviewed: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images'>;
     rating: Schema.Attribute.Integer;
     comment: Schema.Attribute.String;
     hospital: Schema.Attribute.Relation<'manyToOne', 'api::hospital.hospital'>;
@@ -679,6 +682,7 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
       'oneToOne',
       'api::appointment.appointment'
     >;
+    imageURL: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

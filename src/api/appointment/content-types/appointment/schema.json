@@ -4,7 +4,8 @@
   "info": {
     "singularName": "appointment",
     "pluralName": "appointments",
-    "displayName": "appointment"
+    "displayName": "appointment",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -40,6 +41,13 @@
       "relation": "oneToOne",
       "target": "api::review.review",
       "mappedBy": "appointment"
+    },
+    "name": {
+      "type": "string"
+    },
+    "done": {
+      "type": "string",
+      "unique": true
     }
   }
 }
