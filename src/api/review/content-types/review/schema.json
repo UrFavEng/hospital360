@@ -16,7 +16,8 @@
       "type": "string"
     },
     "reviewed": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     },
     "rating": {
       "type": "integer"

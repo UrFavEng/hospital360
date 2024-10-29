@@ -672,7 +672,7 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
   };
   attributes: {
     userName: Schema.Attribute.String;
-    reviewed: Schema.Attribute.String;
+    reviewed: Schema.Attribute.String & Schema.Attribute.Unique;
     rating: Schema.Attribute.Integer;
     comment: Schema.Attribute.String;
     hospital: Schema.Attribute.Relation<'manyToOne', 'api::hospital.hospital'>;
